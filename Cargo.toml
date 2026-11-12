@@ -1,0 +1,18 @@
+[package]
+name = "spaceinvaders"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+macroquad = "0.4.16"
+image = "0.25.10"
+rand = "0.9"
+
+[features]
+scale = []
+default = ["native"]
+rayon = ["dep:rayon"]
+native = ["dep:rayon"]
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+rayon = { version = "1.7", optional = true }
